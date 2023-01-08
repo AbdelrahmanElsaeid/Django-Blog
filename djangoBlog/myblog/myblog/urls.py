@@ -20,9 +20,12 @@ from django.conf import settings
 from posts.views import *
 
 urlpatterns = [
-    path("admin/", admin.site.urls),
-    path("blog/",posts_list ),
-    path("blog/<int:post_id>",posts_detail )
+    path('admin/' , admin.site.urls),
+    path('blog/' , posts_list ),
+    path('blog/add' , create_post),
+    path('blog/<int:post_id>' , posts_detail),
+    path('blog/<int:post_id>/edit' , edit_post),
+
 ]
 
 

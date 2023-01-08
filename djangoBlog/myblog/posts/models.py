@@ -9,3 +9,8 @@ class Post(models.Model):
     content = models.TextField(max_length=10000)
     tags = TaggableManager()
     image = models.ImageField(upload_to='posts/')
+
+
+
+    def __str__(self) -> str:
+        return self.title
