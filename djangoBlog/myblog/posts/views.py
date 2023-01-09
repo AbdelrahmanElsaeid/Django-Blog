@@ -20,7 +20,7 @@ def create_post(request):
         form = PostForm(request.POST, request.FILES)
         if form.is_valid():
             f = form.save(commit=False)
-            f.auther = request.user
+            f.author = request.user
             f.save()
     else:
         form = PostForm()        
@@ -33,7 +33,7 @@ def edit_post(request,post_id):
         form = PostForm(request.POST,request.FILES,instance=single)
         if form.is_valid():
             f = form.save(commit=False)
-            f.auther = request.User
+            f.author = request.user
             f.save()
     else:
         form = PostForm(instance=single)        
