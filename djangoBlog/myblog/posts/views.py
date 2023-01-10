@@ -1,4 +1,4 @@
-from django.shortcuts import render
+from django.shortcuts import render , redirect
 from .models import Post
 from .forms import PostForm
 # Create your views here.
@@ -38,3 +38,9 @@ def edit_post(request,post_id):
     else:
         form = PostForm(instance=single)        
     return render(request,'edit.html',{'x':form})       
+
+
+def delete_post(request, post_id):
+    single = Post.objects.get(id = post_id)
+    single.delete()
+    return redirect('/blog/')  
