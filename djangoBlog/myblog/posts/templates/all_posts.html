@@ -1,6 +1,6 @@
 <h1>blog</h1>
- 
+<a href="/blog/add">Create post</a> 
 
 {% for i in data %}
- <h3>{{i.title}}</h3>
+ <h3><a href="/blog/{{i.slug}}">{{i.title}}</a></h3>
 {% endfor %}

@@ -10,7 +10,7 @@ def posts_list(request):
     return render(request,'all_posts.html',{'data':all})
 
 def posts_detail(request,post_id):
-    single = Post.objects.get(id = post_id)
+    single = Post.objects.get(slug = post_id)
     return render(request, 'detail.html', {'data':single}) 
 
 
@@ -28,7 +28,7 @@ def create_post(request):
 
 
 def edit_post(request,post_id):   
-    single = Post.objects.get(id = post_id)
+    single = Post.objects.get(slug = post_id)
     if request.method == 'POST':
         form = PostForm(request.POST,request.FILES,instance=single)
         if form.is_valid():
@@ -41,6 +41,6 @@ def edit_post(request,post_id):
 
 
 def delete_post(request, post_id):
-    single = Post.objects.get(id = post_id)
+    single = Post.objects.get(slug = post_id)
     single.delete()
     return redirect('/blog/')  
