@@ -9,6 +9,9 @@ def posts_list(request):
     all = Post.objects.all()
     return render(request,'all_posts.html',{'data':all})
 
+
+
+
 def posts_detail(request,post_id):
     single = Post.objects.get(slug = post_id)
     return render(request, 'detail.html', {'data':single}) 
@@ -44,3 +47,4 @@ def delete_post(request, post_id):
     single = Post.objects.get(slug = post_id)
     single.delete()
     return redirect('/blog/')  
+
