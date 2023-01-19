@@ -6,7 +6,10 @@ from .forms import PostForm
 
 
 def posts_list(request):
+    query = request.GET.get('q',None)
     all = Post.objects.all()
+    if query is not None:
+        all = all.filter(title__icontains=query)
     return render(request,'all_posts.html',{'data':all})
 
 def posts_detail(request,post_id):
