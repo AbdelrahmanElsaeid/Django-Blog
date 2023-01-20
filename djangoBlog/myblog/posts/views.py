@@ -9,7 +9,11 @@ def posts_list(request):
     query = request.GET.get('q',None)
     all = Post.objects.all()
     if query is not None:
-        all = all.filter(title__icontains=query)
+        all = all.filter(
+            Q(title__icontains=query)|
+            Q(cotent__icontains=query)|
+            Q(slug__icontains=query)
+        )
     return render(request,'all_posts.html',{'data':all})
 
 
