@@ -1,6 +1,7 @@
 from django.shortcuts import render , redirect
 from .models import Post
 from .forms import PostForm
+from django.db.models import Q
 # Create your views here.
 
 
@@ -14,7 +15,9 @@ def posts_list(request):
             Q(content__icontains=query)|
             Q(slug__icontains=query)
         )
-    return render(request,'all_posts.html',{'data':all})
+    context = {'data':all}    
+    #return render(request,'all_posts.html',{'data':all})
+    return render(request,'all_posts.html',context)
 
 
 
