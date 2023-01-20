@@ -11,7 +11,7 @@ def posts_list(request):
     if query is not None:
         all = all.filter(
             Q(title__icontains=query)|
-            Q(cotent__icontains=query)|
+            Q(content__icontains=query)|
             Q(slug__icontains=query)
         )
     return render(request,'all_posts.html',{'data':all})
