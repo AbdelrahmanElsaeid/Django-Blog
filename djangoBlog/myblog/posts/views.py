@@ -4,8 +4,6 @@ from .forms import PostForm
 from django.db.models import Q
 # Create your views here.
 
-
-
 def posts_list(request):
     query = request.GET.get('q',None)
     all = Post.objects.all()
@@ -18,8 +16,6 @@ def posts_list(request):
     context = {'data':all}    
     #return render(request,'all_posts.html',{'data':all})
     return render(request,'all_posts.html',context)
-
-
 
 
 def posts_detail(request,post_id):
