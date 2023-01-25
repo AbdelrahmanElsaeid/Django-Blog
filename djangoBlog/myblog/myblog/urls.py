@@ -19,13 +19,25 @@ from django.conf.urls.static import static
 from django.conf import settings
 from posts.views import *
 
+from cbv.views import PostList ,PostDetail ,PostCreate, PostUpdate, PostDelete
+
 urlpatterns = [
     path('admin/' , admin.site.urls),
-    path('blog/' , posts_list ),
-    path('blog/add' , create_post),
-    path('blog/<slug:post_id>' , posts_detail),
-    path('blog/<slug:post_id>/edit' , edit_post),
-    path('blog/<slug:post_id>/delete' , delete_post),
+    # path('blog/' , posts_list ),
+    # path('blog/add' , create_post),
+    # path('blog/<slug:post_id>' , posts_detail),
+    # path('blog/<slug:post_id>/edit' , edit_post),
+    # path('blog/<slug:post_id>/delete' , delete_post),
+
+
+    path('blog/' , PostList.as_view() ),
+    path('blog/add' , PostCreate.as_view()),
+
+    path('blog/<slug:slug>' , PostDetail.as_view()),
+    path('blog/<slug:slug>/edit' ,PostUpdate.as_view()),
+    path('blog/<slug:slug>/delete' , PostDelete.as_view()),
+
+
 
 
 ]

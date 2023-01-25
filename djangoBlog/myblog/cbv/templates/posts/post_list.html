@@ -1,0 +1,10 @@
+<h1>blog</h1>
+<a href="/blog/add">Create post</a> 
+
+{% for i in object_list %}
+ <h3><a href="/blog/{{i.slug}}">{{i.title}}</a></h3>
+{% endfor %}
+
+<form method="GET" action="/blog/">
+    <input type="text" name="q" placeholder="search">
+</form>
