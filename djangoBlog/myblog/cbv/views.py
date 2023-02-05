@@ -9,13 +9,13 @@ from django.views.generic.edit import UpdateView, DeleteView, CreateView
 class PostList(ListView):
     model = Post
     # template : post_list.html    (By Default)
-    # context : object_list    or    post_list
+    # context : object_list    or    post_list  (By Default)
 
 
 class PostDetail(DetailView):
     model = Post    
     # template : post_detail.html    (By Default)
-    # context : object    or    post
+    # context : object    or    post    (By Default)
 
 class PostCreate(CreateView):
     model = Post
