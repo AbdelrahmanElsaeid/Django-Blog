@@ -6,7 +6,9 @@ from django.utils.text import slugify
 
 class Post(models.Model):
     author = models.ForeignKey(User,on_delete=models.CASCADE,related_name="post_author")
-    title = models.CharField(max_length=100)
+    title = models.CharField(max_length=100, help_text = 'Must be unique',error_messages = {
+        "unique" : 'This title is not unique please try again ',
+        "blank" : 'This field is not full please try again'})
     content = models.TextField(max_length=10000)
     tags = TaggableManager()
     image = models.ImageField(upload_to='posts/')
