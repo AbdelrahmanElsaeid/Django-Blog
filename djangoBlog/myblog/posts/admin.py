@@ -8,6 +8,7 @@ class PostAdmin(admin.ModelAdmin):
     list_filter = ['tags']
     search_fields = ['title','content']
 
+    readonly_fields = ['update','timestamp']
 
 admin.site.register(Post,PostAdmin)
 

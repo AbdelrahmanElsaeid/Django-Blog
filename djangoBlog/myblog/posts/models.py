@@ -14,6 +14,11 @@ class Post(models.Model):
     image = models.ImageField(upload_to='posts/')
     slug = models.SlugField(null=True,blank=True)
 
+    update = models.DateTimeField(auto_now=True)
+    timestamp = models.DateTimeField(auto_now_add=True)
+
+    
+
 
 
     def __str__(self) -> str:
